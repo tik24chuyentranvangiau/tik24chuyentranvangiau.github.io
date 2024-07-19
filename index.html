@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ti K24</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @font-face {
+      font-family: "Thing of betty light";
+      src: url("path/to/ThingOfBettyLight.ttf") format("truetype"); /* Update the path to your font file */
+    }
+
+    body {
+      background: linear-gradient(135deg, #0d1b2a, #000000);
+      color: #39ff14; /* Neon Green text */
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column; /* Chỉnh để các dãy bit thẳng đứng */
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-family: "Daydream", cursive; /* Sử dụng font Daydream */
+      position: relative; /* Vị trí tuyệt đối cho .star */
+    }
+
+    h1 {
+      font-family: "Daydream", cursive; /* Sử dụng font Daydream cho tiêu đề */
+      font-size: 3em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      color: #39ff14; /* Màu neon xanh lá */
+      margin-bottom: 20px;
+    }
+
+    .star {
+      background: radial-gradient(
+        circle,
+        rgba(57, 255, 20, 0.8),
+        rgba(57, 255, 20, 0.1)
+      );
+      border-radius: 50%;
+      width: 2px;
+      height: 2px;
+      position: absolute;
+    }
+
+    @keyframes twinkle {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+
+    .star:nth-child(odd) {
+      animation: twinkle 1s infinite;
+    }
+
+    .star:nth-child(even) {
+      animation: twinkle 2s infinite;
+    }
+
+    .bit-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute; /* Đặt vị trí tuyệt đối để có thể điều khiển từ JavaScript */
+    }
+
+    .bit {
+      color: #fff; /* Màu neon trắng */
+      font-size: 14px; /* Đổi kích thước chữ thành 14px */
+      margin: 2px 0; /* Để khoảng cách giữa các dãy bit */
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Đổ bóng cho từng ký tự */
+    }
+
+    /* Dãy bit ở góc trái trên cùng */
+    .bit-column.top-left {
+      top: 5%;
+      left: 5%;
+    }
+
+    /* Dãy bit ở góc phải dưới cùng */
+    .bit-column.bottom-right {
+      bottom: 5%;
+      right: 5%;
+    }
+
+    /* Dãy bit ở vị trí ngẫu nhiên */
+    .bit-column.random {
+      top: calc(10% + 80% * var(--random-top));
+      left: calc(10% + 80% * var(--random-left));
+    }
+
+    .footer {
+      font-family: "Thing of betty light", cursive; /* Sử dụng font Thing of betty light */
+      font-size: 10px; /* Cỡ chữ 10px */
+      color: #fff; /* Màu neon trắng */
+      margin-top: 20px;
+    }
+
+    .container {
+      position: relative;
+      width: 1;
+      height: 2; /* Chiều cao của container */
+      background-color: lightblue; /* Màu nền để dễ nhìn thấy container */
+    }
+
+    .image1, .image2, .image3, .image4, .image5 {
+      position: absolute;
+      width: 40px; /* Đặt kích thước chung cho tất cả các ảnh */
+      height: 35px;
+    }
+
+    .image1 {
+      top: 50px; /* Tọa độ Y */
+      left: 100px; /* Tọa độ X */
+    }
+    .image2 {
+      top: 50px; /* Tọa độ Y */
+      right: 100px; /* Tọa độ X */
+    }
+    .image3 {
+      top: 20 px; /* Tọa độ Y */
+      right: 50px; /* Tọa độ X */
+    }
+    .image4 {
+      left: 10px;
+      bottom: 100px; /* Tọa độ X */
+    }
+    .image5{
+      left: 50px;
+      top :250px;
+    }
+  </style>
+</head>
+<body>
+  <div class="star" style="top: 20%; left: 30%"></div>
+  <div class="star" style="top: 50%; left: 70%"></div>
+  <div class="star" style="top: 80%; left: 20%"></div>
+  <div class="star" style="top: 30%; left: 50%"></div>
+  <div class="star" style="top: 60%; left: 40%"></div>
+
+  <h1>Ti K24</h1>
+
+  <div class="bit-column top-left">
+    <div class="bit">1</div>
+    <div class="bit">0</div>
+    <div class="bit">1</div>
+  </div>
+  <div class="bit-column bottom-right">
+    <div class="bit">0</div>
+    <div class="bit">1</div>
+    <div class="bit">0</div>
+  </div>
+
+  <!-- Dãy bit ở vị trí ngẫu nhiên -->
+  <div class="bit-column random" style="--random-top: 0.1; --random-left: 0.2">
+    <div class="bit">1</div>
+    <div class="bit">0</div>
+    <div class="bit">1</div>
+  </div>
+  <div class="bit-column random" style="--random-top: 0.7; --random-left: 0.8">
+    <div class="bit">0</div>
+    <div class="bit">1</div>
+    <div class="bit">0</div>
+  </div>
+  <a href="https://www.facebook.com/profile.php?id=61562049873385&locale=vi_VN" class="footer">
+      Chuyên Trần Văn Giàu ti k24
+      <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/451452912_357171977485332_1697428834496719852_n.png?_nc_cat=109&ccb=1-7&_nc_sid=9f807c&_nc_ohc=520MOgBVynUQ7kNvgE2BoA6&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QGUJy4F9WogqvbeKssHTHGos_8JMEiuDkzZFwwCcInnUA&oe=66C120C7" width="24px" height="21px" alt="Facebook Profile">
+  </a>
+  <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/450201970_1182915033035942_7721846319182916749_n.png?_nc_cat=103&ccb=1-7&_nc_sid=9f807c&_nc_ohc=9x9Pwp-ezIEQ7kNvgGlRrMk&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QFyjPVi9rbLg3hmateB_PzbgRvso3g8MuPTKoSHMucuKQ&oe=66C14297" width="700" height="350">
+  <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/450229105_446123478296014_7824772507383712413_n.png?_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=wbZq8SkD2ccQ7kNvgG2KJE7&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_Q7cD1QFCLOCZdYCSqTug2w080dm2rRjnUa6-ezHzMv07XGgUow&oe=66BF5C71" class="image1">
+  <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/450920195_685806893732024_4300557767978562306_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=FaPHVSlzVG0Q7kNvgF7MRGj&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QHyVM6DwilYIq8OdU33U55NuJEf3XMO3O0_XJ139_cHJQ&oe=66BF52DF" class="image2">
+  <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/450235048_1747348012727774_4305422302020651606_n.png?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ftDRB2fEJKcQ7kNvgGA2hp3&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QFoe8CnAYD1BGvMJooGx0B5c1kgxwZO18rgavX5GzVM3g&oe=66BF3790" class="image3">
+  <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/450235048_1747348012727774_4305422302020651606_n.png?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=ftDRB2fEJKcQ7kNvgGA2hp3&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QFoe8CnAYD1BGvMJooGx0B5c1kgxwZO18rgavX5GzVM3g&oe=66BF3790" class="image3">
+  <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/450967217_1914364962350454_6347344538540498812_n.png?_nc_cat=104&ccb=1-7&_nc_sid=9f807c&_nc_ohc=YEdnWnGXqJAQ7kNvgHIS9__&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QGJU13M7rKlzwcpAhjvZXZB2127_wnSo9K_P4rY8hIalg&oe=66C04879" class="image4">
+  <img src="https://scontent.fsgn22-1.fna.fbcdn.net/v/t1.15752-9/451458835_1536853933856136_7199701502488670361_n.png?_nc_cat=108&ccb=1-7&_nc_sid=9f807c&_nc_ohc=C-gVR-odUJEQ7kNvgGXBppl&_nc_ht=scontent.fsgn22-1.fna&oh=03_Q7cD1QF32-4FZayZFbhWim2EsdQEUlqSuR96_lqgVJbLRwPUxA&oe=66C06083" class="image5">
+  
+
+</body>
+</html>
